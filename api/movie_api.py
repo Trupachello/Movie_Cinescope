@@ -3,7 +3,7 @@ from constants import MOVIE_ENDPOINT
 
 class MovieAPI(CustomRequester):
     """
-    Класс для работы с API пользователей.
+    Класс для работы с API фильмов.
     """
 
     def __init__(self, session):
@@ -12,8 +12,8 @@ class MovieAPI(CustomRequester):
 
     def get_movie_info(self, movie_id, expected_status = 200):
         """
-        Получение информации о пользователе.
-        :param movie_id: ID пользователя.
+        Получение информации о фильме.
+        :param movie_id: ID фильма.
         :param expected_status: Ожидаемый статус-код.
         """
         return self.send_request(
@@ -33,7 +33,7 @@ class MovieAPI(CustomRequester):
     def delete_movie(self, movie_id, expected_status = 200):
         """
         Удаление фильма.
-        :param movie_id: ID пользователя.
+        :param movie_id: ID фильма.
         :param expected_status: Ожидаемый статус-код.
         """
         return self.send_request(

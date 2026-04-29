@@ -4,7 +4,7 @@ class TestPostMovie():
         response = api_manager.movie_api.create_movie(test_film)
         response_data = response.json()
         for key in test_film:
-            assert test_film[key] == response_data[key], "поле {key} не совпадает"
+            assert test_film[key] == response_data[key], f"поле {key} не совпадает"
 
     def test_create_movie_without_auth(self, api_manager, test_film):
         api_manager.movie_api.create_movie(test_film, expected_status = 401)

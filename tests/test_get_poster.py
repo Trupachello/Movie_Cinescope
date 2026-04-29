@@ -5,7 +5,7 @@ class TestGetPoster():
         assert test_poster['pageSize'] == response_data['pageSize'], 'Размер страницы не совпадает'
         assert test_poster['page'] == response_data['page'], 'Номер страницы не совпадает'
 
-    def test_zero_janreId(self, api_manager, test_poster):
+    def test_zero_genreId(self, api_manager, test_poster):
         test_poster["genreId"] = 0
         api_manager.movie_api.get_movie_poster(test_poster, expected_status = 400)
 

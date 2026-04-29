@@ -3,9 +3,9 @@ class TestUpdateMovie:
         new_data = test_film
         response = api_manager.movie_api.update_movie(existed_movie['id'], new_data, expected_status = 200)
         response_data = response.json()
-        assert response_data['id'] == existed_movie['id'], 'id фильмов не совпадают'
+        assert response_data['id'] == existed_movie['id'],'id фильмов не совпадают'
         for key in new_data:
-            assert new_data[key] == response_data[key], 'поле {key} не совпадает'
+            assert new_data[key] == response_data[key], f'поле {key} не совпадает'
 
     def test_update_negative_id(self, test_film, api_manager):
         api_manager.auth_api.authenticate_super_admin()
@@ -25,7 +25,7 @@ class TestUpdateMovie:
 
     def test_update_string_in_price(self, existed_movie, test_film, api_manager):
         test_film["price"] = 'abc'
-        api_manager.movie_api.update_movie(1, test_film, expected_status = 400)
+        api_manager.movie_api.update_movie(existed_movie['id'], test_film, expected_status = 400)
 
 
 

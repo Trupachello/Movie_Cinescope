@@ -40,7 +40,6 @@ def test_film():
         "description": film_description,
         "location": random.choice(["SPB","MSK"]),
         "published": faker.boolean(),
-        # "published": True,
         "genreId": faker.random_int(min = 1, max = 10)
     }
 
