@@ -6,8 +6,8 @@ class TestPostMovie():
         for key in test_film:
             assert test_film[key] == response_data[key], f"поле {key} не совпадает"
 
-    def test_create_movie_without_auth(self, api_manager, test_film):
-        api_manager.movie_api.create_movie(test_film, expected_status = 401)
+    def test_create_movie_without_auth(self, unauthenticated_api_manager, test_film):
+        unauthenticated_api_manager.movie_api.create_movie(test_film, expected_status = 401)
 
     def test_wrong_param_in_body(self, api_manager, test_film):
         api_manager.auth_api.authenticate_super_admin()
